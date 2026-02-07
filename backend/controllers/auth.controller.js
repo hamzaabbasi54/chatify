@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../config/jwt.tokken.js";
+import { sendWelcomeEmail } from "../emails/emailHandlers.js";
 
 export const signup = async (req, res) => {
     const { fullName, email, password } = req.body;
@@ -29,6 +30,10 @@ export const signup = async (req, res) => {
 
         if (newUser) {
             generateToken(newUser._id, res)
+
+            // Send welcome email asynchronously (don't block response)
+            sendWelcomeEmail(newUser.email, newUser.fullName, process.env.CLIENT_URL)
+                .catch(error => console.log("Failed to send welcome email:", error.message));
 
             res.status(201).json({
                 _id: newUser._id,
