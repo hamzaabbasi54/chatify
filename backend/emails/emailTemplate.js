@@ -27,17 +27,17 @@ export function createWelcomeEmailTemplate(name, clientURL) {
       </div>
       
       <div style="text-align: center; margin: 30px 0;">
-        <a href=${clientURL} style="background: linear-gradient(to right, #36D1DC, #5B86E5); color: white; text-decoration: none; padding: 12px 30px; border-radius: 50px; font-weight: 500; display: inline-block;">Open Messenger</a>
+        <a href=${clientURL} style="background: linear-gradient(to right, #36D1DC, #5B86E5); color: white; text-decoration: none; padding: 12px 30px; border-radius: 50px; font-weight: 500; display: inline-block;">Open Chatty</a>
       </div>
       
       <p style="margin-bottom: 5px;">If you need any help or have questions, we're always here to assist you.</p>
       <p style="margin-top: 0;">Happy messaging!</p>
       
-      <p style="margin-top: 25px; margin-bottom: 0;">Best regards,<br>The Messenger Team</p>
+      <p style="margin-top: 25px; margin-bottom: 0;">Best regards,<br>The  Chatty Team</p>
     </div>
     
     <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
-      <p>© 2025 Messenger. All rights reserved.</p>
+      <p>© 2025 Chatty. All rights reserved.</p>
       <p>
         <a href="#" style="color: #5B86E5; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
         <a href="#" style="color: #5B86E5; text-decoration: none; margin: 0 10px;">Terms of Service</a>
