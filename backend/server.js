@@ -4,9 +4,11 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import authRoutes from './routes/auth.route.js';
 import path from 'path';
+import {connectDB} from "./config/db.js";
 
 dotenv.config();
 
+connectDB();
 const app = express();
 
 app.use(express.json());
@@ -14,7 +16,12 @@ app.use(cookieParser());
 app.use(cors());
 
 const __dirname = path.resolve();
+
 app.use('/api/auth', authRoutes);
+
+
+
+
 //making it ready for deployment
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
