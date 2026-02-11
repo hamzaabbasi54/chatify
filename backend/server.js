@@ -3,9 +3,9 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import authRoutes from './routes/auth.route.js';
+import messageRoutes from './routes/message.route.js';
 import path from 'path';
 import {connectDB} from "./config/db.js";
-
 dotenv.config();
 
 connectDB();
@@ -18,6 +18,7 @@ app.use(cors());
 const __dirname = path.resolve();
 
 app.use('/api/auth', authRoutes);
+app.use("/api/messages", messageRoutes);
 
 
 

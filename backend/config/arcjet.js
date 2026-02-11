@@ -7,10 +7,10 @@ const aj = arcjet({
     key: process.env.ARCJET_KEY,
     rules: [
         // Shield protects your app from common attacks e.g. SQL injection
-        shield({ mode: "LIVE" }),
+        shield({ mode: "DRY_RUN" }),
         // Create a bot detection rule
         detectBot({
-            mode: "LIVE", // Blocks requests. Use "DRY_RUN" to log only
+            mode: "DRY_RUN", // Use "LIVE" in production. DRY_RUN logs only, won't block Postman/API tools
             // Block all bots except the following
             allow: [
                 "CATEGORY:SEARCH_ENGINE", // Google, Bing, etc
@@ -22,8 +22,8 @@ const aj = arcjet({
         }),
         // Rate limit for auth endpoints - 5 login attempts per 1 minute
         slidingWindow({
-            mode: "LIVE",
-            max: 5,
+            mode: "DRY_RUN",
+            max: 100,
             interval: "1m",
         }),
     ],
