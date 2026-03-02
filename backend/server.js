@@ -15,7 +15,7 @@ const __dirname = path.resolve();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json({ limit: "5mb" })); // req.body
+app.use(express.json({ limit: "50mb" })); // req.body
 app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174", "https://chatty-ga2yy.sevalla.app"], credentials: true }));
 app.use(cookieParser());
 
